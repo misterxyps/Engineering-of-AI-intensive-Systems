@@ -230,12 +230,12 @@ class ImputationGUI:
     def display_from_row(self):
         try:
             starting_row = int(self.starting_row_entry.get())
-            if 0 <= starting_row <= self.data.shape[0]:
+            if 0 < starting_row <= self.data.shape[0]:
                 self.starting_row = starting_row - 1
                 self.update_results_text()
                 self.update_pagination()
             else:
-                messagebox.showerror("Error", f"Starting row must be between 0 and {self.data.shape[0]}.")
+                messagebox.showerror("Error", f"Starting row must be between 1 and {self.data.shape[0]}.")
         except ValueError:
             messagebox.showerror("Error", "Please enter a valid number.")
 
